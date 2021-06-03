@@ -2,22 +2,15 @@ package web.practicas.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class Usuarios {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Usuario")
-	public Long Id;
+public class Usuarios  extends Base{
+
 	@Column(name = "email",unique=true)
 	String email;
-	@Column(name = "Username", unique = true)
+	@Column(name = "username", unique = true)
 	String username;
 	@Column(name = "password")
 	String pass;
@@ -48,6 +41,14 @@ public class Usuarios {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }

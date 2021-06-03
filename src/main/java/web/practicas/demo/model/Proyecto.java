@@ -1,23 +1,23 @@
 package web.practicas.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "proyecto")
-public class Proyecto{
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_Proyecto")
-	public Long Id;
+public class Proyecto extends Base{
+
 	@Column(name = "nombre")
 	String nombre;
 	@Column(name = "equipo")
 	String equipo;
+	@OneToMany
+	List<Atributo> atributos;
+	
 
 	public Proyecto(String nombre, String equipo) {
 		
